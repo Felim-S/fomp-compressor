@@ -1,0 +1,3 @@
+Hello World!
+This is some arbitrary text that will be used for testing.
+Here's a smiley face, enjoy debugging :D
