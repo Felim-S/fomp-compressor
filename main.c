@@ -1,6 +1,4 @@
 #include "headers.h"
-#include "fileio.c"
-#include "utils.c"
 
 int main(int argc, char *argv[]){
     
@@ -28,14 +26,44 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    char* input = argv[optind];
-    char* output = argv[optind + 1];
+    char* input_string = argv[optind];
+    char* output_string = argv[optind + 1];
+
+    Algorithm algorithm;
+
+    if (algo == NULL) {
+        algorithm = AUTO;
+    } else if (strcmp(algo, "rle") == 0) {
+        algorithm = RLE;
+    } else if (strcmp(algo, "huffman") == 0) {
+        algorithm = HUFFMAN;
+    } else if (strcmp(algo, "lz77") == 0) {
+        algorithm = LZ77;
+    } else {
+        algorithm = AUTO;
+    }
+    
+    FILE *input = fopen(input_string, "rb");
+    FILE *output = fopen(output_string, "wb");
+
+    if(compress){
+        compress_file(input, output, algorithm);
+    } else{
+        decompress_file(input, output, algorithm);
+    }
 
     printf("%s\n", compress ? "Compressing..." : "Decompressing...");
     printf("Algorithm: %s\n", algo == NULL ? "Auto" : algo);
-    printf("Input: %s\n", input);
-    printf("Output: %s\n", output);
-    printf("\n"); // TODO - print out old file size -> new file size
+    printf("Input: %s\n", input_string);
+    printf("Output: %s\n", output_string);
+
+    fseek(input, 0L, SEEK_END);
+    long input_size = ftell(input);
+    fseek(output, 0L, SEEK_END);
+    long output_size = ftell(output);
+
+    printf("File Size (before compression): %ldB (bytes)\n", input_size);
+    printf("File Size (after compression): %ldB (bytes)\n", output_size);
 
     /*
         Testing File I/O Operations

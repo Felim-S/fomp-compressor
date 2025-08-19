@@ -15,3 +15,17 @@ Flushes any remaining bits written from write_bit calls (for number of bits non-
 @param file file to be written to
 */
 void flush_bits(FILE *file);
+/*
+Compresses the given input file using the specified algorithm and writes the result to the output file.
+@param input the file to be compressed
+@param output the compressed file
+@param algorithm the compression algorithm to be used
+*/
+void compress_file(FILE *input, FILE *output, Algorithm algorithm);
+/*
+Deompresses the given input file using the specified algorithm and writes the result to the output file.
+@param input the file to be decompressed
+@param output the decompressed file
+@param algorithm the compression algorithm to be used
+*/
+void decompress_file(FILE *input, FILE *output, Algorithm algorithm);

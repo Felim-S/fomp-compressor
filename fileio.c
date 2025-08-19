@@ -72,3 +72,27 @@ void flush_bits(FILE *file){
         buffer_index = 0;
     }
 }
+
+void compress_file(FILE *input, FILE *output, Algorithm algorithm){
+    if(input == NULL || output == NULL){
+        perror("Error opening input/output file(s)... ");
+        return;
+    }
+
+    if(algorithm == RLE){
+        rle_compress(input, output);
+    } 
+
+}
+
+void decompress_file(FILE *input, FILE *output, Algorithm algorithm){
+    if(input == NULL || output == NULL){
+        perror("Error opening input/output file(s)... ");
+        return;
+    }
+
+    if(algorithm == RLE){
+        rle_decompress(input, output);
+    } 
+    
+}
