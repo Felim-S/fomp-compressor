@@ -81,7 +81,9 @@ void compress_file(FILE *input, FILE *output, Algorithm algorithm){
 
     if(algorithm == RLE){
         rle_compress(input, output);
-    } 
+    } else if(algorithm == HUFFMAN){
+        huffman_compress(input, output);
+    }
 
 }
 
@@ -93,6 +95,8 @@ void decompress_file(FILE *input, FILE *output, Algorithm algorithm){
 
     if(algorithm == RLE){
         rle_decompress(input, output);
-    } 
-    
+    } else if(algorithm == HUFFMAN){
+        huffman_decompress(input, output);
+    }
+
 }

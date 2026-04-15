@@ -11,3 +11,4 @@ typedef enum { AUTO, RLE, HUFFMAN, LZ77 } Algorithm;
 #include "fileio.h"
 #include "utils.h"
 #include "rle.h"
+#include "huffman.h"

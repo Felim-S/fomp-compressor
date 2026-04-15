@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c17
-OBJ = main.o fileio.o utils.o rle.o
+OBJ = main.o fileio.o utils.o rle.o huffman.o
 TARGET = fomp
 
 all: $(TARGET)
@@ -19,6 +19,9 @@ fileio.o: fileio.c fileio.h headers.h
 
 utils.o: utils.c utils.h headers.h
 	$(CC) $(CFLAGS) -c utils.c
+
+huffman.o: huffman.c huffman.h headers.h
+	$(CC) $(CFLAGS) -c huffman.c
 
 clean:
 	rm -f *.o $(TARGET)

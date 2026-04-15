@@ -1,0 +1,16 @@
+#include "headers.h"
+
+void huffman_compress(FILE *input, FILE *output){
+    // Store the frequency of each ASCII char (256 in total)
+    int freq[256] = {0};
+    int byte;
+    while((byte = fgetc(input)) != EOF){
+        freq[byte]++;
+    }
+    
+}
+
+void huffman_decompress(FILE *input, FILE *output){
+
+}
+

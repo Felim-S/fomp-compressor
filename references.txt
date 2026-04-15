@@ -1,2 +1,7 @@
 For CLI Parsing with getopt():
 https://www.youtube.com/watch?v=qkAmFTrrChI
+For Huffman Encoding:
+https://en.wikipedia.org/wiki/Huffman_coding
+https://www.geeksforgeeks.org/dsa/huffman-coding-greedy-algo-3/
+For RLE Compression:
+https://en.wikipedia.org/wiki/Run-length_encoding
